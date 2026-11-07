@@ -3,10 +3,9 @@
 --     (las contraseñas se guardan como hash BCrypt; el login recibe el texto plano)
 --   · 100 estudiantes, 20 cursos y 30 matrículas (el curso «Estructuras de Datos» queda LLENO: cupo 3)
 --
--- Uso:  mysql -uroot -proot < migrate.sql      (o ejecútalo desde MySQL Workbench)
---
--- ⚠️ La aplicación usa spring.jpa.hibernate.ddl-auto=create: BORRA y recrea las tablas cada vez que arranca.
---    Ejecuta este script DESPUÉS de arrancar la aplicación, o cambia a ddl-auto=update.
+-- Uso automático: la aplicación lo ejecuta en cada arranque (spring.sql.init.data-locations en application.properties),
+--    justo después de que Hibernate recrea las tablas (ddl-auto=create las borra y vuelve a crear).
+-- Uso manual:  mysql -uroot -proot < migrate.sql      (o desde MySQL Workbench; si ddl-auto=create, hazlo con la app ya arrancada)
 -- Es repetible: no duplica cuentas, estudiantes (por correo), cursos (por nombre) ni matrículas.
 -- SOLO PARA FINES EDUCATIVOS: en un proyecto real no se siembran cuentas con contraseñas conocidas.
 

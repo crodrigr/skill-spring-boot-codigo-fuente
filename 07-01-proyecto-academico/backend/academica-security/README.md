@@ -89,7 +89,7 @@ Los de negocio (`404`, `409`, `400`, `500`) son los de [`academica-excepciones`]
 
 ## 🗄️ Datos de ejemplo: `migrate.sql`
 
-[`migrate.sql`](migrate.sql) crea las tablas si no existen y carga **2 cuentas** (`admin`, `ana`), **20 estudiantes**, **4 cursos** y **10 matrículas**. El curso «Docker y contenedores» queda **lleno** (cupo 3), útil para probar el `409` de cupo.
+**Se ejecuta solo en cada arranque** (`spring.sql.init.data-locations=file:./migrate.sql`, después de que Hibernate recrea las tablas); arranca la app desde esta carpeta. [`migrate.sql`](migrate.sql) crea las tablas si no existen y carga **2 cuentas** (`admin`, `ana`), **20 estudiantes**, **4 cursos** y **10 matrículas**. El curso «Docker y contenedores» queda **lleno** (cupo 3), útil para probar el `409` de cupo.
 
 ```bash
 mysql -uroot -proot < migrate.sql
